@@ -16,7 +16,7 @@ class InputEmbeddings(nn.Module):
 class PositionalEncoding(nn.Module):
     
     def __init__(self, d_model: int, seq_len: int, dropout: float) -> None:
-        super.__init__()
+        super().__init__()
         self.d_model = d_model
         self.seq_len = seq_len
         self.dropout = nn.Dropout(dropout)

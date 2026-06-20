@@ -21,7 +21,7 @@ from pathlib import Path
 
 def get_all_sentences(ds, lang):
     for item in ds:
-        yield item['translation']['lang']
+        yield item['translation'][lang]
 
 def get_or_build_tokenizer(config, ds, lang):
     tokenizer_path = Path(config['tokenizer_file'].format(lang))
@@ -36,7 +36,7 @@ def get_or_build_tokenizer(config, ds, lang):
     return tokenizer
 
 def get_ds(config):
-    ds_raw = load_dataset('opus_books', f'{config['lang_src']}-{config['lang_tgt']}', split='train')
+    ds_raw = load_dataset('Helsinki-NLP/opus_books', f'{config['lang_src']}-{config['lang_tgt']}', split='train')
 
     # build the tokenizer
     tokenizer_src = get_or_build_tokenizer(config, ds_raw, config['lang_src'])
@@ -143,5 +143,6 @@ def train_model(config):
 if __name__ == '__main__':
     # import warnings
     # warnings.filterwarnings('ignore')
+    print('Starting training')
     config = get_config()
     train_model(config)

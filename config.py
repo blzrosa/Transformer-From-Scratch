@@ -5,7 +5,7 @@ def get_config():
         "batch_size": 8,
         "num_epochs": 20,
         "lr": 1e-4,
-        'seq_len': 350,
+        'seq_len': 210,
         'd_model': 512,
         'lang_src': 'en',
         'lang_tgt': 'pt',
@@ -13,7 +13,7 @@ def get_config():
         'model_basename': 'tmodel_',
         'preload': None,
         'tokenizer_file': 'tokenizer_{0}.json',
-        'experment_name': 'runs/tmodel'
+        'experiment_name': 'runs/tmodel'
     }
 
 def get_weights_file_path(config, epoch: str):
